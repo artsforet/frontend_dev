@@ -1,0 +1,77 @@
+.song-page-container {
+    width: 100%;
+    min-height: 1020px;
+    background-color: #202020;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.song-page-title {
+    width: 1200px;
+    margin-left: 200px;
+}
+
+.waveform-inner {
+    width: 800px;
+}
+
+.waveform-container {
+    width: 1200px;
+    /*line-height: 120px;*/
+    margin-left: 200px;
+}
+
+.waveform-style {
+    margin-top:10px;
+    border-bottom: 0.5px solid gray;
+
+}
+
+.waveform-container > li {
+    width: 800px;
+}
+
+.playButton {
+    max-width: 100px;
+    height: 50px;
+}
+
+.playButton > li {
+    min-width: 200px;
+}
+
+.music-record {
+    width: 1200px;
+    height: 120px;
+    display: flex;
+}
+.music-record-title {
+    width: 100px;
+    margin: 0 20px;
+}
+
+#text {
+    color: white;
+}
+
+.waveform-container-style {
+    display: flex;
+}
+
+.music-waveforms-title-info {
+    min-width: 300px;
+    margin-top: 25px;
+    margin-left: 20px;
+    line-height: 30px;
+}
+
+.music-waveforms-sound-info {
+    width: 150px;
+    margin: 0 20px;
+}
+
+.play-pause-icon {
+    font-size: 30px;
+}
+

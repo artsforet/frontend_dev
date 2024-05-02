@@ -1,0 +1,28 @@
+.curation-title-content {
+    color: white;
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 40px;
+    margin-bottom: 20px;
+}
+
+.curation-title {
+    line-height: 50px;
+    margin-bottom: 100px;
+}
+
+.curation-title > a {
+    color: white;
+    text-decoration: none;
+}
+
+.curation-page-push > a {
+    color: white;
+}
+.curation-page-push {
+    float: right;
+    color: white;
+    font-size: 14px;
+    line-height: 20px;
+    margin-top: 10px;
+}
