@@ -1,34 +1,60 @@
 <template>
-  <div class="curation-swiper">
+  <div class="curation-swiper-container">
+  <div class="curation-swiper-wrapper">
     <!-- 스와이퍼 컨테이너 -->
     <div class="curation-title-content">
-      <span class="curation-title">
-        <router-link to="/">큐레이션</router-link>
-      </span>
+      <br /><br /><br /><br />
+      <div class="curation-title">
+      <span class="curation-page-title"><router-link to="/">큐레이션</router-link></span>
       <span class="curation-page-push">더보기</span>
-    </div><Swiper
+      </div>
+    </div>
+    <Swiper
+      :modules="modules"
       :slides-per-view="5.5"
       :centered-slides="false"
       :space-between="30"
       :pagination="{ type: 'fraction' }"
       :navigation="true"
+      :scrollbar="{ draggable: true }"
       class="curationSwiper"
     >
       <!-- 스와이퍼 슬라이드 -->
-      <swiper-slide>Slide 1</swiper-slide>
-      <swiper-slide>Slide 2</swiper-slide>
-      <swiper-slide>Slide 3</swiper-slide>
-      <swiper-slide>Slide 4</swiper-slide>
-      <swiper-slide>Slide 5</swiper-slide>
-      <swiper-slide>Slide 6</swiper-slide>
-      <swiper-slide>Slide 7</swiper-slide>
-      <swiper-slide>Slide 8</swiper-slide>
-      <swiper-slide>Slide 9</swiper-slide>
+      <swiper-slide>
+        <img src="https://ichef.bbci.co.uk/ace/ws/640/cpsprodpb/3970/production/_108240741_beatles-abbeyroad-square-reuters-applecorps.jpg" />
+      </swiper-slide>
+    <swiper-slide>
+      <img src="https://images.saramingig.co.kr/product/t/2/y/t2ylFhWuQLtV7SO.jpeg/o2j/resize/900"/>
+    </swiper-slide>
+    <swiper-slide>
+      <img src="https://images.saramingig.co.kr/product/t/2/y/t2ylFhWuQLtV7SO.jpeg/o2j/resize/900"/>
+    </swiper-slide>
+    <swiper-slide>
+      <img src="https://ichef.bbci.co.uk/ace/ws/640/cpsprodpb/3970/production/_108240741_beatles-abbeyroad-square-reuters-applecorps.jpg" />
+    </swiper-slide>
+      <swiper-slide>
+        <img src="https://images.saramingig.co.kr/product/t/2/y/t2ylFhWuQLtV7SO.jpeg/o2j/resize/900"/>
+      </swiper-slide>
+      <swiper-slide>
+        <img src="https://ichef.bbci.co.uk/ace/ws/640/cpsprodpb/3970/production/_108240741_beatles-abbeyroad-square-reuters-applecorps.jpg" />
+      </swiper-slide>
+      <swiper-slide>
+        <img src="https://images.saramingig.co.kr/product/t/2/y/t2ylFhWuQLtV7SO.jpeg/o2j/resize/900"/>
+      </swiper-slide>
+      <swiper-slide>
+        <img src="https://ichef.bbci.co.uk/ace/ws/640/cpsprodpb/3970/production/_108240741_beatles-abbeyroad-square-reuters-applecorps.jpg" />
+      </swiper-slide>
+      <swiper-slide>
+        <img src="https://images.saramingig.co.kr/product/t/2/y/t2ylFhWuQLtV7SO.jpeg/o2j/resize/900"/>
+      </swiper-slide>
+      <swiper-slide>
+        <img src="https://ichef.bbci.co.uk/ace/ws/640/cpsprodpb/3970/production/_108240741_beatles-abbeyroad-square-reuters-applecorps.jpg" />
+      </swiper-slide>
     </Swiper>
-
     <!-- 스크롤바 -->
-    <div class="custom-scrollbar"></div>
+<!--    <div class="custom-scrollbar"></div>-->
   </div>
+</div>
 </template>
 
 <script>
@@ -38,11 +64,12 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/scrollbar";
-import "@/assets/css/home/curation-swiper.css";
+import 'swiper/css/navigation';
+import 'swiper/css/scrollbar';
 import "@/assets/css/home/curation-layout.css";
 
 // import required modules
-import { Scrollbar } from "swiper/modules";
+import { A11y, Navigation, Pagination, Scrollbar } from 'swiper/modules'
 
 export default {
   components: {
@@ -51,12 +78,8 @@ export default {
   },
   setup() {
     return {
-      modules: [Scrollbar],
+      modules: [Navigation, Pagination, Scrollbar, A11y],
     };
-  },
-  mounted() {
-    // 스와이퍼와 스크롤바를 초기화합니다.
-    // this.initSwiper();
   },
   methods: {
     // initSwiper() {
@@ -85,6 +108,23 @@ export default {
   },
 };
 </script>
+<style>
+@import "@/assets/css/home/curation-swiper.css";
+
+</style>
+<!--<style>-->
+<!--.curation-swiper-container {-->
+<!--  width: 100%;-->
+<!--  text-align: center;-->
+<!--}-->
+
+<!--.curation-swiper-wrapper {-->
+<!--  text-align: center;-->
+<!--}-->
+<!--.swiper {-->
+<!--  width: 960px;-->
+<!--}-->
+<!--</style>-->
 <!--<template>-->
 <!--  <div class="curation-swiper">-->
 <!--    <swiper-->

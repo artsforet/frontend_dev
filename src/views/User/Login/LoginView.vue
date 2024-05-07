@@ -52,28 +52,27 @@ const isLoggedIn = ref(false); // 로그인 페이지에서 헤더를 보여줄�
 </script>
 
 <template>
-  <form class="login-form" @submit.prevent="submit">
-    <div class="login-container">
-      <br /><br /><br />
+  <div class="login-container-form">
+  <form class="login-all-form" @submit.prevent="submit">
       <h1 class="login-title"><router-link to="/">로그인</router-link></h1>
-      <br /><br />
+      <div class="login-form">
+      <br /><br /><br />
       <div class="login-wrap">
         <div class="login-form-interior-layout">
-          <br /><br />
-          <br />
           <div class="login-layout-form">
+            <div class="login-form-style-with">
             <span class="login-form-content">아이디</span>
-            <br />
-            <input
+            <br /><br />
+              <input
                 v-model="email"
                 type="text"
                 class="form-control"
                 placeholder="Email"
                 required
             />
-            <br />
+            <br /> <br />
             <span class="login-form-content">비밀번호</span>
-            <br />
+            <br /><br />
             <input
                 v-model="password"
                 type="password"
@@ -83,25 +82,41 @@ const isLoggedIn = ref(false); // 로그인 페이지에서 헤더를 보여줄�
             />
             <br /><br /><br />
             <button class="login-submit" type="submit">로그인</button>
+            <br /><br />
             <div class="login-sub-function">
               <span class="user-save">
                 <router-link to="/"> 게정 정보 저장</router-link>
               </span>
+              &nbsp; &nbsp; &nbsp;
               <span class="user-find">
                 <router-link to="/"> 아이디/비밀번호 찾기 </router-link>
               </span>
             </div>
-            <!--            <button class="register-submit" @click="pushRegister">-->
-            <!--              아직 회원이 아니신가요? <span> 회원가입 </span>-->
-            <!--            </button>-->
+            <br /><br />
+              <div class="register-router-form">
+                <router-link to="/register">
+                  아직 회원이 아니신가요? <span> 회원가입 </span>
+                </router-link>
+              </div>
+            </div>
           </div>
           <br /><br />
         </div>
       </div>
-    </div>
+      </div>
   </form>
+  </div>
 </template>
 
-<style>
+<style scoped>
 @import "@/assets/User/LoginView.css";
 </style>
+
+
+<!-- LOGIN WRAP -->
+<!--background-color: #333;-->
+
+
+<!--background-color: #202020;-->
+<!--background-color: #f3be38;-->
+<!--background-color: #484848;-->

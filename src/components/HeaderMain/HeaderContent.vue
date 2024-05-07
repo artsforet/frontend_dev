@@ -1,59 +1,53 @@
-<script>
-import { computed, onMounted, ref, watch, watchEffect } from 'vue'
+<script setup>
+import { computed, onMounted, ref, watch, watchEffect, defineEmits } from 'vue'
 import { useStore } from "vuex";
-import { useRouter } from "vue-router";
 import axios from 'axios'
+import { onClickOutside } from '@vueuse/core'
 
-export default {
-  setup() {
-    const store = useStore();
-    const router = useRouter();
-    const message = ref("로그인");
-    const modal_variable = ref(false);
+const store = useStore();
+const message = ref("로그인");
+const modal_variable = ref(false);
 
-    const user_modal = () => {
-      if (message.value !== "로그인") {
-        modal_variable.value = !modal_variable.value;
-      }
-    };
-
-    const auth = computed(() => store.state.authenticated);
-
-    watchEffect(async () => {
-      try {
-          const response = await axios.get("/auth/user");
-          const login_display = response.data;
-          if (login_display.email) {
-            message.value = `${login_display.email}`;
-          } else {
-            message.value = "로그인";
-          }
-          await store.dispatch("setAuth", true);
-      } catch (error) {
-        console.error("Error fetching user data:", error);
-      }
-    });
-    const logout = async (event) => {
-      event.preventDefault();
-      await fetch("/api/auth/logout", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        credentials: "include",
-      });
-      modal_variable.value = !modal_variable.value;
-      window.location.reload();
-    };
-    return {
-      router,
-      auth,
-      logout,
-      store,
-      message,
-      user_modal,
-      modal_variable,
-    };
-  },
+const user_modal = () => {
+  if (message.value !== "로그인") {
+    modal_variable.value = !modal_variable.value;
+  }
 };
+
+const auth = computed(() => store.state.authenticated);
+
+watchEffect(async () => {
+  try {
+      const response = await axios.get("/auth/user");
+      const login_display = response.data;
+      if (login_display.email) {
+        message.value = `${login_display.email}`;
+      } else {
+        message.value = "로그인";
+      }
+      await store.dispatch("setAuth", true);
+  } catch (error) {
+    console.error("Error fetching user data:", error);
+  }
+});
+const logout = async (event) => {
+  event.preventDefault();
+  await fetch("/api/auth/logout", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    credentials: "include",
+  });
+  modal_variable.value = !modal_variable.value;
+  window.location.reload();
+};
+
+const props = defineProps([
+  'user_modal_controller'
+])
+const close_modal = () => {
+  modal_variable.value = !modal_variable.value;
+}
+
 </script>
 <template>
   <div class="header-content">
@@ -71,7 +65,7 @@ export default {
         <span>마이페이지</span> <br />
         <span>다운로드 내역</span> <br />
         <span>1:1 문의 내역</span> <br />
-        <span><router-link to="/test">음악 업로드</router-link></span> <br />
+        <span @click="close_modal"><router-link to="/test">음악 업로드</router-link></span> <br />
         <span v-if="message.value !== `logout`"
           ><a href="#" class="modal-logout" @click="logout">LOGOUT</a></span
         >

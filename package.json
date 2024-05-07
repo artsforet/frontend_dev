@@ -12,6 +12,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@vueuse/core": "^10.9.0",
     "audio-context-polyfill": "^1.0.0",
     "axios": "^1.6.8",
     "bootstrap": "^5.2.3",

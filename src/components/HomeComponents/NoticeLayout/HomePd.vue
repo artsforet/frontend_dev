@@ -30,7 +30,7 @@ export default {
 
     async function fetchMp3Files() {
       try {
-        const response = await axios.get("http://localhost:8000/storage/get");
+        const response = await axios.get("http://101.101.208.214:8000/storage/get");
         mp3Files.value = response.data;
         selectedFile.value = mp3Files.value[0]; // 기본적으로 첫 번째 파일 선택
         await fetchMp3File(); // 기본적으로 선택된 파일에 대한 MP3 파일 가져오기
@@ -42,7 +42,7 @@ export default {
     async function fetchMp3File() {
       try {
         const response = await axios.get(
-          `http://localhost:8000/storage/${selectedFile.value}`
+          `http://101.101.208.214/storage/${selectedFile.value}`
         );
         mp3Url.value = URL.createObjectURL(
           new Blob([response.data], { type: "audio/mpeg" })

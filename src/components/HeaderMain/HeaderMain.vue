@@ -65,7 +65,7 @@ export default {
                 <router-link to="/soundfactory/song" class="shortcut-link">곡</router-link>
               </div>
               <div class="shortcut-item">
-                <a class="shortcut-link" href="#">앨범</a>
+                <a class="shortcut-link" href="/soundfactory/albumn">앨범</a>
               </div>
             </div>
           </div>

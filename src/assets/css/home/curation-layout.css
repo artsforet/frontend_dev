@@ -1,3 +1,10 @@
+.curation-swiper-container {
+    text-align: center;
+    margin: 0 auto;
+    justify-content: center;
+    height: 800px;
+}
+
 .curation-title-content {
     color: white;
     font-size: 30px;
