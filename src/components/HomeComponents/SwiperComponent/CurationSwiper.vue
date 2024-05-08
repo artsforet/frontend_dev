@@ -11,9 +11,8 @@
     </div>
     <Swiper
       :modules="modules"
-      :slides-per-view="5.5"
+      :slides-per-view="5"
       :centered-slides="false"
-      :space-between="30"
       :pagination="{ type: 'fraction' }"
       :navigation="true"
       :scrollbar="{ draggable: true }"
@@ -22,6 +21,8 @@
       <!-- 스와이퍼 슬라이드 -->
       <swiper-slide>
         <img src="https://ichef.bbci.co.uk/ace/ws/640/cpsprodpb/3970/production/_108240741_beatles-abbeyroad-square-reuters-applecorps.jpg" />
+        <br />
+        <div style="color: white; top:0; margin:0; padding:0; width: 222px ">Hello World</div>
       </swiper-slide>
     <swiper-slide>
       <img src="https://images.saramingig.co.kr/product/t/2/y/t2ylFhWuQLtV7SO.jpeg/o2j/resize/900"/>
@@ -110,7 +111,6 @@ export default {
 </script>
 <style>
 @import "@/assets/css/home/curation-swiper.css";
-
 </style>
 <!--<style>-->
 <!--.curation-swiper-container {-->

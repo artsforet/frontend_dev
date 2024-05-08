@@ -221,7 +221,6 @@ export default {
 
 <style>
 .swiper-button-prev, .swiper-button-next {
-  margin-left:20px;
 }
 
 </style>

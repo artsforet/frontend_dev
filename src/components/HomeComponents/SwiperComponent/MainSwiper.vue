@@ -52,6 +52,30 @@ export default {
 .swiper-slide {
   background-color: black;
 }
+.mainSwiper {
+  width: 100%;
+  height: 400px;
+}
+.mainSwiper > .swiper-wrapper > .swiper-slide > img {
+  width: 100%;
+  min-height: 400px;
+}
+
+.swiper-button-prev:after, .swiper-button-next:after {
+  height: 50px;
+  font-size: 2em;
+}
+
+.swiper-button-prev, .swiper-button-next {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  color: white;
+  background-color: #484848;
+  font-size: 10px;
+}
+
+
 .swiper-wrapper {
   width: 900px;
 }
