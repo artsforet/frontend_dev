@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 
-axios.defaults.baseURL = 'http://101.101.208.214:8000/api/'
+axios.defaults.baseURL = 'http://118.67.135.13/api/'
 
 
 axios.interceptors.response.use(resp => resp,async error => {
