@@ -1,5 +1,5 @@
 .song-page-container {
-    width: 100%;
+    max-width: 1920px;
     min-height: 1020px;
     background-color: #202020;
     color: white;
@@ -9,23 +9,22 @@
 
 .song-page-title {
     width: 1200px;
-    margin-left: 200px;
+    margin: 0 auto;
 }
 
 .waveform-inner {
     width: 800px;
+    margin-top: 10px;
 }
 
 .waveform-container {
-    width: 1200px;
+    max-width: 1200px;
     /*line-height: 120px;*/
-    margin-left: 200px;
+    margin:0 auto;
 }
 
 .waveform-style {
-    margin-top:10px;
     border-bottom: 0.5px solid gray;
-
 }
 
 .waveform-container > li {
@@ -60,10 +59,22 @@
 }
 
 .music-waveforms-title-info {
-    min-width: 300px;
-    margin-top: 25px;
-    margin-left: 20px;
-    line-height: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.music-waveforms-title-info-description {
+    display: flex;
+    flex-direction: column;
+}
+
+.music-waveforms-title-info > div {
+    min-width: 150px;
+}
+.music-waveforms-title-info img {
+    width: 75px;
+    height: 75px;
+    margin-right: 50px;
 }
 
 .music-waveforms-sound-info {
@@ -75,3 +86,25 @@
     font-size: 30px;
 }
 
+
+.audio-duration {
+    color: #bbbbbb;
+}
+
+/* 버튼 스타일 */
+.move-button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    background-color: #484848;
+    color: #bbbbbb;
+}
+
+.move-button:hover {
+    background-color: #dddddd;
+    color: #202020;
+}
+
+/*.bi-chevron-right {*/
+/*    font-weight: 800;*/
+/*}*/

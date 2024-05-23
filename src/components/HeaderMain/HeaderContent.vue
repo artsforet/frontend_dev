@@ -5,7 +5,7 @@ import axios from 'axios'
 import { onClickOutside } from '@vueuse/core'
 
 const store = useStore();
-const message = ref("로그인");
+// const message = ref("로그인");
 const modal_variable = ref(false);
 
 const user_modal = () => {
@@ -16,20 +16,33 @@ const user_modal = () => {
 
 const auth = computed(() => store.state.authenticated);
 
-watchEffect(async () => {
-  try {
-      const response = await axios.get("/auth/user");
-      const login_display = response.data;
-      if (login_display.email) {
-        message.value = `${login_display.email}`;
-      } else {
-        message.value = "로그인";
-      }
-      await store.dispatch("setAuth", true);
-  } catch (error) {
-    console.error("Error fetching user data:", error);
-  }
+const message = computed(() => {
+  const user = store.getters.getUser;
+  return store.getters.isAuthenticated ? ` ${user.email}` : '로그인';
 });
+
+const fetchUser = async () => {
+  await store.dispatch('fetchUser');
+};
+onMounted(fetchUser);
+
+// watchEffect(async () => {
+//   try {
+//       const response = await axios.get("/auth/user");
+//       const login_display = response.data;
+//       if (login_display.email) {
+//         message.value = `${login_display.email}`;
+//       } else {
+//         message.value = "로그인";
+//       }
+//       await store.dispatch("setAuth", true);
+//   } catch (error) {
+//     console.error("Error fetching user data:", error);
+//   }
+// });
+
+
+
 const logout = async (event) => {
   event.preventDefault();
   await fetch("/api/auth/logout", {

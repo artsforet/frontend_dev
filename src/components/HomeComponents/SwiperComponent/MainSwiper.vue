@@ -52,13 +52,16 @@ export default {
 .swiper-slide {
   background-color: black;
 }
+
 .mainSwiper {
   width: 100%;
   height: 400px;
 }
 .mainSwiper > .swiper-wrapper > .swiper-slide > img {
-  width: 100%;
+  width: 1920px;
   min-height: 400px;
+  object-fit: cover;
+  margin: 0 auto;
 }
 
 .swiper-button-prev:after, .swiper-button-next:after {

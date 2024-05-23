@@ -2,10 +2,10 @@
   <swiper
     ref="{swiperRef}"
     :slidesPerView="7"
-    :centeredSlides="true"
     :spaceBetween="10"
     :navigation="true"
     :modules="modules"
+    :freeMode="true"
     class="vlog-home-swiper"
   >
     <swiper-slide style="color: black; width:200px;height: 300px; flex-wrap: wrap">
@@ -94,3 +94,20 @@ export default {
   },
 };
 </script>
+
+<style>
+.vlog-home-swiper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.vlog-home-swiper > .swiper-wrapper {
+  margin-right: 500px;
+}
+
+.vlog-home-swiper > .swiper-wrapper > .swiper-slide > img {
+
+  display: block;
+  object-fit: cover;
+}
+</style>

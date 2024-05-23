@@ -1,44 +1,44 @@
 <template>
-  <div class="song-album-container">
-    <div class="song-album-wrapper">
+  <div class="song-page-container">
+    <div class="song-page-wrapper">
       <div class="audio-player">
         <div class="song-page-title">
           <br /><br /><br />
-          <h2> 앨범 > BGM </h2>
-          {{song}}
+          <h2> 곡 > BGM </h2>
+          <h4 style="color:#f3be38; line-height: 50px"> 템포 전체 | 길이 전체 </h4>
         </div>
         <div ref="waveform" class="waveform-container" v-if="musicRecords">
-          <div class="waveform-wrapper">
-          <div v-for="(record, index) in currentItems" :key="index" class="waveform-style">
-            <div class="music-record">
-              <div class="music-waveforms-title-info"
-                   @mouseover="showIcon = index"
-                   @mouseleave="showIcon = null"
-              >
-                <img
-                  :src="getRecordTitle(record.Key).imageUrl"
-                  class="song-album-image"
-                />
-                <div class="play-icon" v-if="showIcon === index">
-                  <i class="bi bi-play-fill"></i>
-                </div>
-              </div>
-              <div class="album-title">
-                {{ getRecordTitle(record.Key).album }}
-              </div>
-                <div>
-                <div class="waveform-inner"></div>
-                <br />
+<!--          <div v-for="(record, index) in currentItems" :key="index" class="waveform-style">-->
+<!--            <div class="music-record">-->
+<!--              <div class="music-waveforms-title-info">-->
+<!--                <img :src="getRecordTitle(record.Key).imageUrl" />-->
+<!--                <div class="music-waveforms-title-info-description">-->
+<!--                  <div style="font-size:15px">{{ getRecordTitle(record.Key).title }}</div>-->
+<!--                  <div style="color:#888888; font-size:14px">{{ getRecordTitle(record.Key).album }}</div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--              <div>-->
+<!--                <div class="waveform-inner"></div>-->
+<!--                <br />-->
 <!--                <div style="margin:0; padding: 0; height:12px; line-height:5px;"> example description </div>-->
-              </div>
+<!--              </div>-->
+
+              &nbsp;&nbsp;&nbsp;&nbsp;
+<!--              <div style="display: flex; line-height: 90px;">-->
+<!--                <p class="audio-duration">{{ formatTime(audioDurations[index]) }}</p>-->
+<!--                &nbsp;&nbsp;&nbsp;&nbsp;-->
+
+<!--                <span @click="playPauseAudio(index)" class="play-pause-icon">-->
+<!--                  <i :class="['bi', playingIndex === index ? 'bi-pause' : 'bi-play-fill']"></i>-->
+<!--                </span>-->
+<!--              </div>-->
             </div>
           </div>
-          </div>
-        </div>
-        <div v-else style="text-align: center; margin-top: 150px">
-          <h1> 곡이 없습니다.</h1>
-        </div>
-      </div>
+<!--        </div>-->
+<!--        <div v-else style="text-align: center; margin-top: 150px">-->
+<!--          <h1> 곡이 없습니다.</h1>-->
+<!--        </div>-->
+<!--      </div>-->
 
       <br /><br />
       <center>
@@ -46,9 +46,9 @@
           <button @click="prevPage" :disabled="currentPage === 1" class="move-button">
             <i class="bi bi-chevron-left"></i>
           </button>
-          &nbsp; &nbsp; &nbsp;
+          &nbsp;
           <span>Page {{ currentPage }} of {{ totalPages }}</span>
-          &nbsp; &nbsp; &nbsp;
+          &nbsp;
           <button @click="nextPage" :disabled="currentPage === totalPages" class="move-button">
             <i class="bi bi-chevron-right"></i>
           </button>
@@ -81,10 +81,6 @@ export default {
       currentPage: 1,
       itemsPerPage: 10,
       not_image: not_image,
-      songs: [],
-      currentAlbum: '',
-      albumPlayButton: '',
-      showIcon: false
     };
   },
   watch: {
@@ -105,24 +101,6 @@ export default {
     }
   },
   methods: {
-    async fetchSongs(albumName) {
-      this.currentAlbum = albumName;
-      try {
-        const response = await axios.get(`/music/albums/${albumName}/songs`);
-        this.songs = response.data.songs;
-      } catch (error) {
-        console.log(error);
-      }
-    },
-    async albumPlay(){
-      try{
-        const response = await axios.get('/music/albums/play')
-        this.albumPlayButton = response.data;
-      }
-      catch(error){
-        console.log(error);
-      }
-    },
     async fetchMusicData() {
       try {
         const response = await axios.get('/music/get/table/');
@@ -169,18 +147,18 @@ export default {
           const audioUrl = URL.createObjectURL(new Blob([response.data]));
           const audioDuration = await this.getAudioDuration(audioUrl);
           this.audioDurations.push(audioDuration);
-          // const wavesurfer = WaveSurfer.create({
-          //   container: this.$refs.waveform.children[this.wavesurfers.length].querySelector('.waveform-inner'),
-          //   waveColor: 'gray',
-          //   progressColor: 'orange',
-          //   autoplay: false,
-          //   height: 50,
-          // });
-          // wavesurfer.load(audioUrl);
-          // wavesurfer.on('finish', () => {
-          //   this.playingIndex = -1;
-          // });
-          // this.wavesurfers.push(wavesurfer);
+          const wavesurfer = WaveSurfer.create({
+            container: this.$refs.waveform.children[this.wavesurfers.length].querySelector('.waveform-inner'),
+            waveColor: 'gray',
+            progressColor: 'orange',
+            autoplay: false,
+            height: 50,
+          });
+          wavesurfer.load(audioUrl);
+          wavesurfer.on('finish', () => {
+            this.playingIndex = -1;
+          });
+          this.wavesurfers.push(wavesurfer);
         }
       } catch (error) {
         console.error('Error loading audio:', error);
@@ -227,5 +205,5 @@ export default {
 </script>
 
 <style scoped>
-@import "@/assets/css/SongAlbum.css";
+@import "@/assets/css/SongPage.css";
 </style>

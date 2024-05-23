@@ -3,12 +3,12 @@
   <div class="curation-swiper-wrapper">
     <!-- 스와이퍼 컨테이너 -->
     <div class="curation-title-content">
-      <br /><br /><br /><br />
       <div class="curation-title">
       <span class="curation-page-title"><router-link to="/">큐레이션</router-link></span>
       <span class="curation-page-push">더보기</span>
       </div>
     </div>
+    <br /><br /><br />
     <Swiper
       :modules="modules"
       :slides-per-view="5"
@@ -26,30 +26,48 @@
       </swiper-slide>
     <swiper-slide>
       <img src="https://images.saramingig.co.kr/product/t/2/y/t2ylFhWuQLtV7SO.jpeg/o2j/resize/900"/>
+      <br />
+      <div style="color: white; top:0; margin:0; padding:0; width: 222px ">Hello World</div>
     </swiper-slide>
     <swiper-slide>
       <img src="https://images.saramingig.co.kr/product/t/2/y/t2ylFhWuQLtV7SO.jpeg/o2j/resize/900"/>
+      <br />
+      <div style="color: white; top:0; margin:0; padding:0; width: 222px ">Hello World</div>
     </swiper-slide>
     <swiper-slide>
       <img src="https://ichef.bbci.co.uk/ace/ws/640/cpsprodpb/3970/production/_108240741_beatles-abbeyroad-square-reuters-applecorps.jpg" />
+      <br />
+      <div style="color: white; top:0; margin:0; padding:0; width: 222px ">Hello World</div>
     </swiper-slide>
       <swiper-slide>
         <img src="https://images.saramingig.co.kr/product/t/2/y/t2ylFhWuQLtV7SO.jpeg/o2j/resize/900"/>
+        <br />
+        <div style="color: white; top:0; margin:0; padding:0; width: 222px ">Hello World</div>
       </swiper-slide>
       <swiper-slide>
         <img src="https://ichef.bbci.co.uk/ace/ws/640/cpsprodpb/3970/production/_108240741_beatles-abbeyroad-square-reuters-applecorps.jpg" />
+        <br />
+        <div style="color: white; top:0; margin:0; padding:0; width: 222px ">Hello World</div>
       </swiper-slide>
       <swiper-slide>
         <img src="https://images.saramingig.co.kr/product/t/2/y/t2ylFhWuQLtV7SO.jpeg/o2j/resize/900"/>
+        <br />
+        <div style="color: white; top:0; margin:0; padding:0; width: 222px ">Hello World</div>
       </swiper-slide>
       <swiper-slide>
         <img src="https://ichef.bbci.co.uk/ace/ws/640/cpsprodpb/3970/production/_108240741_beatles-abbeyroad-square-reuters-applecorps.jpg" />
+        <br />
+        <div style="color: white; top:0; margin:0; padding:0; width: 222px ">Hello World</div>
       </swiper-slide>
       <swiper-slide>
         <img src="https://images.saramingig.co.kr/product/t/2/y/t2ylFhWuQLtV7SO.jpeg/o2j/resize/900"/>
+        <br />
+        <div style="color: white; top:0; margin:0; padding:0; width: 222px ">Hello World</div>
       </swiper-slide>
       <swiper-slide>
         <img src="https://ichef.bbci.co.uk/ace/ws/640/cpsprodpb/3970/production/_108240741_beatles-abbeyroad-square-reuters-applecorps.jpg" />
+        <br />
+        <div style="color: white; top:0; margin:0; padding:0; width: 222px ">Hello World</div>
       </swiper-slide>
     </Swiper>
     <!-- 스크롤바 -->

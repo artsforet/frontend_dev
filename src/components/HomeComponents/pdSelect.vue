@@ -5,7 +5,7 @@
         <div class="pd-select-title-content">
           <br /><br /><br /><br />
           <div class="pd-select-title">
-            <span class="pd-select-page-title"><router-link to="/">PD SELECT</router-link></span>
+            <span class="pd-select-page-title"><router-link to="/">PD의 선택</router-link></span>
             <span class="pd-select-page-push">더보기</span>
           </div>
 <!--        </div>-->
@@ -108,6 +108,7 @@
   margin: 0 auto;
   justify-content: center;
   height: 800px;
+  color: white;
 }
 
 .pd-select-page-title {

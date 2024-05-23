@@ -1,0 +1,104 @@
+.last-song-swiper-container {
+    width: 1196px;
+    height: 800px;
+    margin: 0 auto;
+}
+
+.last-song-swiper-container > .last-song-swiper-wrapper {}
+
+.last-song-page-title, .last-song-page-title > a, .last-song-page-title > a:hover  {
+    float: left;
+    color: white;
+    text-decoration: none;
+}
+.last-song-page-push {
+    float: right;
+}
+
+.last-song-page-title, .last-song-page-title > a, .last-song-page-title > a:hover  {
+    float: left;
+    color: white;
+    text-decoration: none;
+}
+
+.last-song-page-push {
+    float: right;
+}
+
+.last-song-swiper {
+    color: black;
+}
+
+/*.curationSwiper {*/
+/*    min-height: 180px;*/
+/*    max-height: 100px;*/
+/*}*/
+
+/*.swiper-slide {*/
+/*    text-align: center;*/
+/*    font-size: 18px;*/
+/*    !* Center slide text vertically *!*/
+/*    color: white;*/
+/*    left: 0;*/
+/*}*/
+
+.curation-swiper-list {
+    /*min-height: 800px;*/
+}
+
+
+.swiper-slide img {
+    /*width: 222px;*/
+    /*height: 222px;*/
+    /*object-fit: cover;*/
+}
+
+.swiper-button-prev, .swiper-button-next {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    color: white;
+    background-color: #484848;
+    font-size: 10px;
+    top: 0;
+    margin-top: 80px;
+}
+.swiper-button-prev:after, .swiper-button-next:after {
+    top: 0;
+    height: 50px;
+    line-height: 50px;
+    font-size: 2em;
+}
+
+.curation-swiper {
+    color: black;
+}
+
+.curationSwiper {
+    min-height: 500px;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    /* Center slide text vertically */
+    color: white;
+    left: 0;
+}
+
+.last-song-swiper {
+    min-height: 800px;
+}
+
+.last-song-swiper > .swiper-wrapper {
+    /*min-height: 800px;*/
+}
+
+.last-song-swiper > .swiper-wrapper > .swiper-slide {
+    /*min-height: 800px;*/
+}
+
+.last-song-swiper > .swiper-wrapper > .swiper-slide > img {
+    width: 222px;
+    height: 334px;
+}

@@ -1,6 +1,10 @@
 <template>
   <div class="album-series-swiper-container">
-    <h3 class="album-series-title"><router-link to="/"> 앨범 시리즈 </router-link></h3>
+    <br /><br /><br /><br /><br /><br />
+    <h3 class="album-series-title">
+      <router-link to="/"> 앨범 시리즈 </router-link>
+    </h3>
+  <br /><br /><br />
   <swiper
     @swiper="setThumbsSwiper"
     :slidesPerView="18"
@@ -96,7 +100,6 @@
       </span>
     </swiper-slide>
   </swiper>
-  <br /><br /><br />
   <swiper
     :style="{
       '--swiper-navigation-color': '#fff',
@@ -220,7 +223,31 @@ export default {
 </script>
 
 <style>
+.album-series-swiper-container {
+  width: 1196px;
+  text-align: center;
+  margin: 0 auto;
+  justify-content: center;
+  height: 800px;
+}
+
+.album-series-swiper-button-swiper {
+  width: 1200px;
+}
+.album-series-swiper-button-swiper > .swiper-wrapper {
+  height: 0;
+}
+
+
+.album-series-title {
+  float: left;
+}
+
+.album-series-swiper-button-swiper .swiper-slide {
+  line-height: 40px;
+}
 .swiper-button-prev, .swiper-button-next {
 }
+
 
 </style>

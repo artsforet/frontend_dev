@@ -11,7 +11,7 @@ const pushRegister = () => {
 };
 const submit = async (event) => {
   event.preventDefault();
-    const { data }  = await axios.post('/auth/login', {
+    const { data }  = await axios.post('auth/login', {
       email: email.value,
       password: password.value,
     }, { withCredentials: true });

@@ -30,7 +30,7 @@ export default {
     <div class="header-bottom_content">
       <div class="header-inner_container header-inner_container--bottom">
         <div class="header-interact">
-          <a class="header-logo" href="/"> GG </a>
+          <a class="header-logo" href="/"> 예술숲 </a>
           <form class="header_search-area">
             <!--            <input type="hidden" name="searchtype" value="track" />-->
             <div class="header_search-wrap">
@@ -65,7 +65,7 @@ export default {
                 <router-link to="/soundfactory/song" class="shortcut-link">곡</router-link>
               </div>
               <div class="shortcut-item">
-                <a class="shortcut-link" href="/soundfactory/albumn">앨범</a>
+                <a class="shortcut-link" href="/soundfactory/album">앨범</a>
               </div>
             </div>
           </div>

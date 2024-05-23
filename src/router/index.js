@@ -5,6 +5,8 @@ import TestView from '@/views/TestView.vue'
 import SongPage from '@/views/HeaderCategories/SoundFactory/SongPage.vue'
 import RegisterView from '@/views/User/Login/RegisterView.vue'
 import SongAlbum from '@/views/HeaderCategories/SoundFactory/SongAlbum.vue'
+import MusicDetail from '@/views/MusicDetail.vue'
+import AlbumDetail from '@/views/HeaderCategories/SoundFactory/AlbumDetail.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -18,6 +20,12 @@ const router = createRouter({
       path: '/test',
       name: 'test',
       component: TestView
+    },
+    {
+      path: '/detail',
+      name: 'musicDetail',
+      component: MusicDetail
+
     },
     {
       path: '/register',
@@ -42,6 +50,11 @@ const router = createRouter({
       path: '/soundfactory/song',
       name: 'songpage',
       component: SongPage
+    },
+    {
+      path: '/soundfactory/albumdetail',
+      name: 'albumdetail',
+      component: AlbumDetail
     },
     {
       path: '/soundfactory/album',

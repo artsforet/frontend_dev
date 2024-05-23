@@ -3,6 +3,7 @@ import MainSwiper from '@/components/HomeComponents/SwiperComponent/MainSwiper.v
 import CurationSwiper from '@/components/HomeComponents/SwiperComponent/CurationSwiper.vue'
 import PdSelect from '@/components/HomeComponents/pdSelect.vue'
 import AlbumSeries from '@/components/HomeComponents/AlbumSeries.vue'
+import LastSong from '@/components/HomeComponents/LastSong.vue'
 </script>
 
 <template>
@@ -18,6 +19,9 @@ import AlbumSeries from '@/components/HomeComponents/AlbumSeries.vue'
     </section>
     <section>
       <AlbumSeries />
+    </section>
+    <section>
+      <LastSong />
     </section>
     <br /><br /><br /><br /><br /><br /><br /><br /><br />
   </main>

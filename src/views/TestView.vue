@@ -8,7 +8,7 @@
       </label>
 
       <div class="upload-form-text-color"> MP3 파일을 선택해주세요. </div>
-        <input type="file" id="input-file"  class="mp3-upload" accept="audio/*" @change="handleFileUpload" />
+        <input type="file" id="input-file"  class="mp3-upload" ref="audio" accept="audio/*" @change="handleFileUpload" required/>
         <h3 style="color: white" v-if="test">{{test}}</h3>
 
         <br /> <br /> <br /> <br /> <br />
@@ -17,39 +17,39 @@
         </label>
         <div class="upload-form-text-color" > 이미지 파일을 선택해주세요. </div>
 
-      <input type="file" id="input-image-file" @change="handleImageUpload" accept="image/*" class="mp3-upload"> <br /> <br />
+      <input type="file" id="input-image-file" ref="image" accept="image/*" class="mp3-upload" @change="handleImageUpload" required> <br /> <br />
 
       <div class="metadata-container">
           <div class="metadata-form-container">
             <label for="title" class="label-container"> 타이틀 &nbsp; </label>
-            <input type="text" v-model="title" placeholder="타이틀명을 입력해주세요." class="upload-music-input">
+            <input type="text" v-model="title" placeholder="타이틀명을 입력해주세요." class="upload-music-input" required>
               &nbsp;
           </div>
 
-              <div class="metadata-form-container">
-            <label for="filename"  class="label-container">FILE NAME</label>
-            <input type="text" v-model="filename" placeholder="파일명을 입력해주세요." class="upload-music-input"> &nbsp;
-          </div>
-
-          <div class="metadata-form-container">
-            <label for="link"  class="label-container">링크</label>&nbsp;
-            <input type="text" v-model="link" placeholder="링크 사실 XXXX" class="upload-music-input">&nbsp;
-          </div>
+<!--          <div class="metadata-form-container">-->
+<!--            <label for="link"  class="label-container">링크</label>&nbsp;-->
+<!--            <input type="text" v-model="permalink" placeholder="링크 사실 XXXX" class="upload-music-input" required>&nbsp;-->
+<!--          </div>-->
 
           <div class="metadata-form-container">
             <label for="duration"  class="label-container">시간</label>
-            <input type="number" v-model="duration" placeholder="노래 길이" class="upload-music-input">&nbsp;
+            <input type="number" v-model="duration" placeholder="노래 길이" class="upload-music-input" required>&nbsp;
           </div>
 
           <div class="metadata-form-container">
             <label for="status"  class="label-container">공개여부 </label> &nbsp;
-            <input type="text" v-model="status" placeholder="공개여부" class="upload-music-input"> &nbsp;
+            <input type="text" v-model="status" placeholder="공개여부" class="upload-music-input" required> &nbsp;
           </div>
 
           <div class="metadata-form-container">
             <label for="album"  class="label-container">앨범</label> &nbsp;
-            <input type="text" v-model="album" placeholder="album" class="upload-music-input"> &nbsp;
+            <input type="text" v-model="album" placeholder="album" class="upload-music-input" required> &nbsp;
           </div>
+
+        <div class="metadata-form-container">
+          <label for="album"  class="label-container">아티스트</label> &nbsp;
+          <input type="text" v-model="artist" placeholder="album" class="upload-music-input" required> &nbsp;
+        </div>
         </div>
 
       <br /><br /><br />
@@ -64,50 +64,62 @@ import axios from 'axios';
 export default {
   data() {
     return {
-      mp3_file: null,
-      image_file: null,
-      title: '',
-      filename: '',
-      link: '',
-      duration: null,
-      status: '',
-      album: '',
-      mp3_info: '',
-      test: "",
-      coverFilename: '',
+        title: '',
+        artist: '',
+        filename: '',
+        link: '',
+        duration: null,
+        status: '',
+        album: '',
+        mp3_info: '',
+        coverFilename: '',
+        audioFile: null,
+        imageFile: null,
+        test: "",
+       // permalink: "",
     };
   },
   methods: {
     handleFileUpload(event) {
-      this.mp3_file = event.target.files[0];
+      this.audioFile = event.target.files[0];
       const a = event.target.files[0].name;
       this.test = a;
     },
-    handleImageUpload(event) {
-      this.image_file = event.target.files[0];
+    handleImageUpload(event){
+      this.imageFile = event.target.files[0]
     },
-    async uploadFile() {
+    // handleImageUpload(event) {
+    //   this.image_file = event.target.files[0];
+    // },
+    uploadFile: async function() {
       try {
-        const formData = new FormData();
-        formData.append('mp3_file', this.mp3_file);
-        formData.append('image_file', this.image_file);
+        const formData = new FormData()
         formData.append('title', this.title);
-        formData.append('filename', this.filename);
-        formData.append('link', this.link);
-        formData.append('duration', this.duration);
+        formData.append('artist', this.artist);
         formData.append('album', this.album);
+        formData.append('duration', this.duration);
         formData.append('status', this.status);
-        formData.append('coverFilename', this.coverFilename);
-
+        if (this.audioFile) {
+          formData.append('audio', this.audioFile);
+        }
+        if (this.imageFile) {
+          formData.append('image', this.imageFile);
+        }
         await axios.post('/music/upload', formData, {
           headers: {
-            'Content-Type': 'multipart/form-data'
+            'Content-Type': 'multipart/form-data',
           }
-        });
-        alert('File uploaded successfully');
+        })
+          .then(response => {
+            console.log('Success:', response);
+            alert('File uploaded successfully');
+        }) .catch(error => {
+            console.error('Error:', error);
+            alert('Failed to upload file');
+          });
       } catch (error) {
-        console.error('Error uploading file:', error);
-        alert('Failed to upload file');
+        console.error('Error uploading file:', error)
+        alert('Failed to upload file')
       }
     }
   }

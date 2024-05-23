@@ -3,6 +3,7 @@ import HeaderMain from "@/components/HeaderMain/HeaderMain.vue";
 import HeaderContent from "@/components/HeaderMain/HeaderContent.vue";
 import { ref } from 'vue'
 import SoundBar from '@/components/SoundBar.vue'
+import FooterComponent from '@/components/Footer/FooterComponent.vue'
 
 const user_modal_controller = ref(false);
 
@@ -16,5 +17,6 @@ const close_modal = () => {
   <HeaderMain />
   <router-view></router-view>
   <SoundBar />
+  <FooterComponent />
 </div>
 </template>
